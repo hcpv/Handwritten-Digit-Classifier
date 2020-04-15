@@ -71,7 +71,7 @@ Imgproc.GaussianBlur(mat3,mat2,Size(35.0,35.0),0.0)
 Imgproc.threshold(mat2,mat3,70.0,255.0,Imgproc.THRESH_BINARY_INV+Imgproc.THRESH_OTSU)
 Imgproc.resize(mat3,mat3,Size(28.0,28.0))
 ```
-**4)** [Classifier](android/app/src/main/java/com/example/handwritten_digit_classifier/Classifier.kt) reads the mnist.tflite from assets directory and loads it into an tflite-Interpreter for inference. 
+**3)** [Classifier](android/app/src/main/java/com/example/handwritten_digit_classifier/Classifier.kt) reads the mnist.tflite from assets directory and loads it into an tflite-Interpreter for inference. 
 ```kotlin
 val assets = context.assets
 val model = loadModelFile(assets, "mnist.tflite")
@@ -79,7 +79,7 @@ val options = Interpreter.Options()
 options.setUseNNAPI(true)
 val interpreter = Interpreter(model, options)
 ```
-**3)** Final image is fed into tflite-Interpreter for classification
+**4)** Final image is fed into tflite-Interpreter for classification
 ```kotlin
 val resizedimg = Bitmap.createScaledBitmap(bitmap,imgWidth,imgHeight,true)
 val byteBuffer = convertBitmapToByteBuffer(resizedimg)
