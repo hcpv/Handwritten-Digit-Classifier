@@ -8,6 +8,8 @@ import android.view.MotionEvent
 import android.widget.Button
 import android.widget.TextView
 import com.divyanshu.draw.widget.DrawView
+
+
 class MainActivity : AppCompatActivity() {
 
     companion object {
@@ -50,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         if((bitmap!=null) && (classifier.isInitialized)){
             classifier
                 .classifyAsync(bitmap)
-                .addOnSuccessListener { resultText -> predictedTextView?.text = resultText }
+                .addOnSuccessListener { (resultText1,resultText2) -> predictedTextView?.text = resultText1 }
                 .addOnFailureListener { e ->
                     predictedTextView?.text = "Error"
                     Log.e(TAG,"Error while classifying",e)

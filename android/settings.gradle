@@ -1,2 +1,3 @@
 rootProject.name='Handwritten_Digit_Classifier'
 include ':app'
+include ':openCVLibrary343'

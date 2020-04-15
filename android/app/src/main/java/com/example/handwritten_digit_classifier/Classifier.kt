@@ -91,7 +91,7 @@ class Classifier(private val context: Context) {
         return byteBuffer
     }
 
-    private fun classify(bitmap: Bitmap): String{
+    private fun classify(bitmap: Bitmap): Pair<String,String>{
         check(isInitialized) {"tflite interpreter is not initialised"}
 
         val resizedimg = Bitmap.createScaledBitmap(bitmap,imgWidth,imgHeight,true)
@@ -105,13 +105,13 @@ class Classifier(private val context: Context) {
         }
         val result = output[0]
         val maxInd = result.indices.maxBy{result[it]} ?: -1
-        val resultString = "Prediction Result: %d\nConfidence: %2f".format(maxInd, result[maxInd])
-
-        return resultString
+        val resultString1 = "Prediction Result: %d\nConfidence: %2f".format(maxInd, result[maxInd])
+        val resultString2 = "%d %2f".format(maxInd, result[maxInd])
+        return Pair(resultString1,resultString2)
     }
 
-    fun classifyAsync(bitmap: Bitmap):Task<String>{
-        return call(executorService,Callable<String>{classify(bitmap)})
+    fun classifyAsync(bitmap: Bitmap):Task<Pair<String,String>>{
+        return call(executorService,Callable<Pair<String,String>>{classify(bitmap)})
     }
 
     fun close(){

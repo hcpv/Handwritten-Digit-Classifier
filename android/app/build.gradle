@@ -5,13 +5,14 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 28
 
+    ndkVersion "20.0.5594570"
 
     defaultConfig {
         applicationId "com.example.handwritten_digit_classifier"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "2.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -29,7 +30,7 @@ android {
 }
 
 preBuild.doFirst {
-    assert file("./src/main/assets/mnist.tflite").exists() :
+    assert file("./src/main/assets/mnist.tflite").exists():
             "mnist.tflite not found. Make sure you have trained and " +
                     "downloaded your TensorFlow Lite model to assets/ folder"
 }
@@ -47,4 +48,5 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation project(path: ':openCVLibrary343')
 }
