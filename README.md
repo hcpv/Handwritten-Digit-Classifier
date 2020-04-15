@@ -89,4 +89,3 @@ interpreter?.run(byteBuffer, output)
 ## Credits
 * [Tensorflow lite tutorial](https://www.tensorflow.org/lite/tutorials)
 * [Opencv setup on android studio](https://android.jlelse.eu/a-beginners-guide-to-setting-up-opencv-android-library-on-android-studio-19794e220f3c)
-* 
