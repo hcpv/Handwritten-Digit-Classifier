@@ -50,8 +50,18 @@ f.write(tflite_quantized_model)
 f.close()
 ```
 ### c) Build android app
-* JavaCameraView is used to capture image.
-* Captured Image is preprossed using opencv.
+**1)** JavaCameraView is used to capture image.
+```xml
+<org.opencv.android.JavaCameraView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/camera"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    android:visibility="invisible"/>
+```
+**2)** Captured Image is preprossed using opencv.
 ```kotlin
 var roi = Rect(x.toInt(), y.toInt(), w.toInt(), h.toInt())
 var mat2 = Mat(mat,roi)
