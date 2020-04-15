@@ -50,9 +50,12 @@ f.write(tflite_quantized_model)
 f.close()
 ```
 ### c) Build android app
-**1)** JavaCameraView is used to capture image.
-**2)** Captured Image is preprossed using opencv.
+* JavaCameraView is used to capture image.
+* Captured Image is preprossed using opencv.
 ```kotlin
+var roi = Rect(x.toInt(), y.toInt(), w.toInt(), h.toInt())
+var mat2 = Mat(mat,roi)
+var mat3 = Mat()
 Imgproc.cvtColor(mat2,mat3,Imgproc.COLOR_BGR2GRAY)
 Imgproc.GaussianBlur(mat3,mat2,Size(35.0,35.0),0.0)
 Imgproc.threshold(mat2,mat3,70.0,255.0,Imgproc.THRESH_BINARY_INV+Imgproc.THRESH_OTSU)
