@@ -39,7 +39,7 @@ model.fit_generator(train_generator, validation_data=test_generator, epochs=10)
 model.save('mnist_cnn.h5')
 ```
 ### b) Conversion to tflite format
-The saved model cannot be directly used in android apps. Firstly, it needs to be optimized enough to reside within apps. TensorFlow Lite is the solution to enabling ML models within mobile apps.
+The [saved model](model/mnist_cnn.h5) cannot be directly used in android apps. Firstly, it needs to be optimized enough to reside within apps. TensorFlow Lite is the solution to enabling ML models within mobile apps.
 ```python
 model = keras.models.load_model('mnist_cnn.h5')
 converter = tf.lite.TFLiteConverter.from_keras_model(model)
