@@ -49,7 +49,7 @@ f = open('mnist.tflite', "wb")
 f.write(tflite_quantized_model)
 f.close()
 ```
-### c) Build android app
+### c) Build the android app
 **1)** JavaCameraView is used to capture image.
 ```xml
 <org.opencv.android.JavaCameraView
