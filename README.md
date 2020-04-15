@@ -1,1 +1,1 @@
-# Handwritten-Digit-Recognition-using-CNN
+# Handwritten Digit Recognition
