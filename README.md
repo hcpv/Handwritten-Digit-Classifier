@@ -38,4 +38,14 @@ model.fit_generator(train_generator, validation_data=test_generator, epochs=10)
 ```python
 model.save('mnist_cnn.h5')
 ```
-**5)** 
+### b) Conversion to tflite format
+The saved model cannot be directly used in android apps. Firstly, it needs to be optimized enough to reside within apps. TensorFlow Lite is the solution to enabling ML models within mobile apps.
+```python
+model = keras.models.load_model('mnist_cnn.h5')
+converter = tf.lite.TFLiteConverter.from_keras_model(model)
+converter.optimizations = [tf.lite.Optimize.DEFAULT]
+tflite_quantized_model = converter.convert()
+f = open('mnist.tflite', "wb")
+f.write(tflite_quantized_model)
+f.close()
+```
