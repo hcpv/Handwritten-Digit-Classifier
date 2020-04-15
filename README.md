@@ -16,3 +16,26 @@ Handwritten Digit Clasiifier is an android app that is used to classify handwrit
 ```python
 (x_train, y_train), (x_test, y_test) = keras.datasets.mnist.load_data()
 ```
+**2)** Building and compiling of the model
+```python
+model = Sequential()
+model.add(Conv2D(16, kernel_size=3, activation='relu', input_shape=(28,28,1)))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Conv2D(32, kernel_size=3, activation='relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Conv2D(64, kernel_size=3, activation='relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Dropout(0.25))
+model.add(Flatten())
+model.add(Dense(10, activation='softmax'))
+model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+```
+**3)** Train the model
+```python
+model.fit_generator(train_generator, validation_data=test_generator, epochs=10)
+```
+**4)** Saving the model
+```python
+model.save('mnist_cnn.h5')
+```
+**5)** 
