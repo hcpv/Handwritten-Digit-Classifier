@@ -1,6 +1,6 @@
 # Handwritten Digit Clasifier
 
-Handwritten Digit Clasiifier is an android app that is used to classify handwritten digit. It uses a CNN model trained on [MNIST dataset](http://yann.lecun.com/exdb/mnist/) to classify. The accuracy of the model was 98.40%. 
+Handwritten Digit Clasiifier is an android app that is used to classify handwritten digit. It uses a CNN model trained on [MNIST dataset](http://yann.lecun.com/exdb/mnist/) to classify. The accuracy of the model was 98.40%. Download the [apk](android/apk/handwritten_digit_classifier.apk) of the app from apk folder.
 
 ## PRE-REQUISITES
 * [python 3.7.7](https://www.python.org/downloads/)
