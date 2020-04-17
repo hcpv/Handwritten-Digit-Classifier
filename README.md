@@ -4,8 +4,8 @@ Handwritten Digit Clasiifier is an android app that is used to classify handwrit
 
 ## DEMO
 <p align="center">
-      <img src="android/demo/demo.gif">
-    </p>
+      <img src="android/demo/demo.gif"></p>
+
 ## PRE-REQUISITES
 * [python 3.7.7](https://www.python.org/downloads/)
 * [jupyter notebook](https://jupyter.org/install)
